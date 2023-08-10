@@ -5,7 +5,7 @@ cache:
   directories:
     - node_modules
 
-node_js: stable
+node_js: v16.14.0
 
 install:
   - npm install -D
