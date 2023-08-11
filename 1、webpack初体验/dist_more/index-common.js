@@ -1,0 +1,1 @@
+(()=>{"use strict";var e={};(e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})})(e);console.log(3),console.log("hello world".toUpperCase());var o=exports;for(var l in e)o[l]=e[l];e.__esModule&&Object.defineProperty(o,"__esModule",{value:!0})})();
