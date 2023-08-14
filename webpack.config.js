@@ -7,17 +7,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  entry: {
-    hello: "./index.js",
-    sum: "./main.js",
-  },
+  entry: "./index.js",
   output: {
-    // path: path.resolve(__dirname, "dist"),
-    // path: path.resolve(__dirname, "dist1"),
-    path: path.resolve(__dirname, "dist2"),
-    filename: "[name][hash].js",
-    // ext 为文件的后缀名
-    assetModuleFilename: "./images/[name][hash][ext]",
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -26,26 +19,29 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
   mode: "development",
-  // 配置loader
-  module: {
-    rules: [
-      {
-        test: /\.(png|jpe?g|gif|webp)$/,
-        type: "asset/resource",
-        generator: {
-          // 覆盖assetModuleFilename
-          // filename: "./images/[name][ext]",
-        },
-        include: [
-          path.resolve(__dirname, "src/assets"),
-          // path.join(__dirname, "assets/images"),
-        ],
-        parser: {
-          dataUrlCondition: {
-            maxSize: 20 * 1024, // 小于10kb的图片会被base64处理
-          },
-        },
+  devServer: {
+    // 配置主机地址
+    host: "localhost",
+    // 是否自动打开浏览器
+    open: true,
+    // 配置端口号
+    port: 9000,
+    // 是否开启热更新
+    hot: true,
+    client: {
+      // 开启错误提示
+      overlay: { errors: true, warnings: true },
+      // 开启进度条
+      progress: true,
+    },
+    compress: true, // 开启gzip压缩
+    proxy: {
+      "/api": {
+        target: "http://localhost:3000", // 代理的目标地址
+        pathRewrite: { "^/api": "" }, // 重写路径
+        changeOrigin: true, // 是否改变源地址
+        secure: false, // 是否验证SSL证书
       },
-    ],
+    },
   },
 };

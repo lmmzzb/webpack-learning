@@ -7,10 +7,12 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 module.exports = {
   context: path.resolve(__dirname, "src"),
+  // 配置入口
   entry: {
     hello: "./index.js",
     sum: "./main.js",
   },
+  // 配置出口
   output: {
     // path: path.resolve(__dirname, "dist"),
     // path: path.resolve(__dirname, "dist1"),
@@ -19,12 +21,14 @@ module.exports = {
     // ext 为文件的后缀名
     assetModuleFilename: "./images/[name][hash][ext]",
   },
+  // 配置插件
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
     }),
     new CleanWebpackPlugin(),
   ],
+  // 配置环境
   mode: "development",
   // 配置loader
   module: {

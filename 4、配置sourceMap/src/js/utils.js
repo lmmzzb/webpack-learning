@@ -1,4 +1,4 @@
 export function toUpcase(str) {
-  // console.lod("toUpcase");
+  console.lod("toUpcase");
   return str.toUpperCase();
 }

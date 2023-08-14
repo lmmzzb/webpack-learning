@@ -4,7 +4,7 @@
   "description": "this is a webpack demo for learning webpack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "npm run build",
     "build": "webpack --config webpack.config.js"
   },
   "repository": {
@@ -35,8 +35,7 @@
     "postcss-loader": "^7.3.3",
     "style-loader": "^3.3.3",
     "webpack": "^5.88.2",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-cli": "^5.1.4"
   },
   "dependencies": {
     "file-loader": "^6.2.0"
