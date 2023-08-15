@@ -1,0 +1,14 @@
+language: node_js
+
+cache:
+  apt: true
+  directories:
+    - node_modules
+
+node_js: v16.14.0
+
+install:
+  - npm install -D
+
+script:
+  - npm start

@@ -1,0 +1,4 @@
+{
+  "watch": ["/ProjectLearning/Webpack-demo/webpack.config.js"],
+  "exec": "npm start"
+}
