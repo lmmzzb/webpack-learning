@@ -1,0 +1,18 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "chrome": "67",
+          "browsers": ["last 2 versions", "safari 7"]
+        },
+        // 这个是用来按需加载的，不用全部引入
+        "useBuiltIns": "usage",
+        // 声明corejs版本
+        "corejs": 3
+      }
+    ]
+  ],
+  "plugins": ["@babel/plugin-transform-runtime"]
+}

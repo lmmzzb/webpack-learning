@@ -29,9 +29,9 @@ module.exports = {
     // 配置端口号
     port: 8000,
     // 是否开启热更新
-    hot: false,
-    // liveReload: false,
-    compress: true, // 开启gzip压缩
+    hot: true,
+    liveReload: false,
+    // compress: true, // 开启gzip压缩
     // watchFiles: ["./src/index.html"],
   },
   module: {
@@ -39,6 +39,21 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        // 匹配mjs或者js文件
+        test: /\.m?js$/,
+        // 排除node_modules目录下的文件
+        exclude: /node_modules/,
+        // 使用babel-loader转换
+        use: {
+          loader: "babel-loader",
+          // 配置参数，如果在项目根目录下有babel.config.js或者.babelrc文件，会自动读取配置
+          // options: {
+          //   // 预设，作用是指示babel做怎么样的兼容性处理
+          //   presets: [["@babel/preset-env", { targets: "ie 11" }]],
+          // },
+        },
       },
     ],
   },
